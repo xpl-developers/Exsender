@@ -1,5 +1,6 @@
 # production
 dist
+out
 .next
 now.json
 # dependencies
