@@ -5,7 +5,7 @@ import SocialLink from './SocialLink';
 let Footer = () => {
 
 	return (
-		<footer className="footer">
+		<footer className="footer has-background-light">
 			<div className="columns">
 				<div className="column">
 					<p className="is-size-5">

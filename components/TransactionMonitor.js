@@ -27,12 +27,15 @@ export function TransactionMonitor(props) {
 		
 		} else {
 
-			icon = <span> <span className="has-text-danger fas fa-times-circle"></span> <button className="button is-danger is-small" data-index={i} onClick={tx.onClick}> retry </button> </span>;
+			icon = <span> <span className="has-text-danger fas fa-times-circle"></span> <button className="button is-danger is-small" data-index={i.toString()} onClick={tx.onClick}> retry </button> <button className="button is-warning is-small" data-index={(i+1).toString()} onClick={tx.onClick}> try next </button> </span>;
 		}
-
+		let lifting = "";
+		if (tx.name || tx.symbol || tx.balance) {
+			lifting = `${tx.name || ""} (${(tx.balance || 0) / Math.pow(10, (tx.decimals || 0))} ${tx.symbol || ""}) -`;
+		}
 		return (
 			<p key={i}>
-				{i+1}. <i>{tx.hash || "txhash unknown"}</i> 
+				{i+1}. <i>{lifting} {(tx.lift ? tx.hash : "skipped") || "txhash unknown"}</i> 
 				&nbsp; {icon}
 			</p>
 		);

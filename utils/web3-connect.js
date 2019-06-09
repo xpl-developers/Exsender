@@ -1,4 +1,6 @@
 import standardAbi from "../abi/distributor.json";
+import Misc from './misc';
+
 let xplAddress = "0x51f43d0c05eEfdEB70eEAf973e0b8286E494902D";
 let networkKey = {
 		"1": {"name": "Ethereum Main Network", "colour": "success"}, 
@@ -77,10 +79,59 @@ export class Web3ConnectionHandler {
 		});
 	}
 	static distributeToken(method, foreignContractAddress, addresses, amount, contractAddress = xplAddress) {
+
 		let web3 = Web3ConnectionHandler.instantiateWeb3Browser();
 		let contract = web3.eth.contract(standardAbi).at(contractAddress);
 		return new Promise((resolve, reject) => {
 			contract[method].sendTransaction(foreignContractAddress, addresses, amount, function(err, txHash) {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(txHash);
+					}
+			})
+		})	
+	}
+	static transferToken(address, amount, contractAddress) {
+
+		let web3 = Web3ConnectionHandler.instantiateWeb3Browser();
+		let contract = web3.eth.contract(standardAbi).at(contractAddress);
+		
+		return new Promise((resolve, reject) => {
+			contract["transfer"].sendTransaction(address, amount, function(err, txHash) {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(txHash);
+					}
+			})
+		})	
+	}
+	static distributeEtherWithSplittedAmount(addresses, amount, contractAddress = xplAddress) {
+		
+		let web3 = Web3ConnectionHandler.instantiateWeb3Browser();
+		let contract = web3.eth.contract(standardAbi).at(contractAddress);
+
+		let totalAmount = amount.reduce(Misc.numberReducer);
+		return new Promise((resolve, reject) => {
+			contract["distributeEtherWithSplittedAmount"].sendTransaction(addresses, amount, {value: totalAmount}, function(err, txHash) {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(txHash);
+					}
+			})
+		})	
+	}
+	static distributeEtherWithUnifiedAmount(addresses, amount, contractAddress = xplAddress) {
+		
+		let web3 = Web3ConnectionHandler.instantiateWeb3Browser();
+		let contract = web3.eth.contract(standardAbi).at(contractAddress);
+
+		let totalAmount = (amount * addresses.length) * Math.pow(10, 18);
+		
+		return new Promise((resolve, reject) => {
+			contract["distributeEtherWithUnifiedAmount"].sendTransaction(addresses, {value: totalAmount}, function(err, txHash) {
 					if (err) {
 						reject(err);
 					} else {
@@ -123,5 +174,11 @@ export class Web3ConnectionHandler {
 			return false;
 		
 		}
+	}
+
+	static getAddressInfo() {
+		let address = Web3ConnectionHandler.checkBrowserCompatibility().selectedAddress;
+		let url = `http://api.ethplorer.io/getAddressInfo/${address}?apiKey=freekey`;
+		return fetch(url).then(addrInfo => addrInfo.json());
 	}
 }

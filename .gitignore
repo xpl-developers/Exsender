@@ -1,6 +1,7 @@
 # production
+dist
 .next
-
+now.json
 # dependencies
 node_modules
 package-lock.json

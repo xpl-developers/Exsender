@@ -6,6 +6,7 @@ export default function Warning() {
 			<ul>
 				<li>Recommended transfer per transaction is 180.</li>
 				<li>Do not transfer to an exchange wallet.</li>
+				<li>ETH distributor will not send to a contract address.</li>
 				<li>
 					Checkout 
 					<Link href="/faq">

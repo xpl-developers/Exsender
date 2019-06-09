@@ -144,7 +144,7 @@ class TokenDistributor extends React.Component {
 	async handleContractAddress(value) {
 		let validAddress = Web3ConnectionHandler.validateAddress(value);
 
-		if( validAddress ) {
+		if ( validAddress ) {
 			this.setState({isProcessing: true});
 			try {
 				let contractName = await Web3ConnectionHandler.getContractProp(value, 'name');
@@ -237,7 +237,6 @@ class TokenDistributor extends React.Component {
 			});	
 		}
 	}
-
 	handleSubmit(e) {
 		e.preventDefault();
 		let self = this;
@@ -374,7 +373,7 @@ class TokenDistributor extends React.Component {
 		.catch(err => {
 				self.updateMonitor(iterator, {hash: "txhash unknown", onClick: self.restartDistribution})
 
-				window.alert("Error occurred at transaction index "+iterator);
+				// window.alert("Error occurred at transaction index "+iterator);
 		})
 		.finally (() => {
 			self.setState({isProcessing: false, transactionInProgress: false});
@@ -583,11 +582,14 @@ class TokenDistributor extends React.Component {
 		}
 	}
 	componentDidMount() {
-		if (Web3ConnectionHandler.checkBrowserCompatibility()) {
-			this.setState({isWeb3Browser: true});
-			this.unlockBrowser();
+		if (!this.state.web3BrowserConnected) {
+			if (Web3ConnectionHandler.checkBrowserCompatibility()) {
+				this.setState({isWeb3Browser: true});
+				this.unlockBrowser();
+			}
 		}
 	}
+	
 	render() {
 		if (this.state.web3BrowserConnected && this.state.isWeb3Browser) {
 			return (
@@ -694,14 +696,9 @@ class TokenDistributor extends React.Component {
 			return (
 				<Page>
 					<SubHeader />
-					<LockedWeb3Browser>
-						<button 
-							className="button is-warning is-large"
-							onClick={this.unlockBrowser}
-							>
-						Unlock Metamask
-						</button>
-					</LockedWeb3Browser>
+					<LockedWeb3Browser 
+						onClick={this.unlockBrowser}
+					/>		
 				</Page>
 			)
 		} else {

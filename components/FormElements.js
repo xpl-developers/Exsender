@@ -91,7 +91,7 @@ export function CheckBox(props) {
 					onChange={props.onChange || null}
 					onClick={props.onClick || null}
 				/>
-				 &nbsp; {props.placeholder}
+				 &nbsp; {props.placeholder || null}
 			</label>
 		)
 }

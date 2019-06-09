@@ -7,7 +7,7 @@ let AppConfig =  {
 	termsOfService: {name: "Terms of service", link: 'https://exclusiveplatform.com'},
 	donation: {
 		message: "Support us through donation, we appreciate it a lot.",
-		eth: "0xfe3da3708036aec603a8cc9538ac98ce8358a558",
+		eth: "0x9664f6B784A6a27Ea407F8C88a996B73E9AE8da8",
 		btc: "39ydztrvFDzE4xnygLojgijGg81J4foTVA"
 	},
 	social: {
@@ -26,7 +26,7 @@ let AppConfig =  {
 	subNavLink: [
 		{name: 'Token Distributor', link: '/token-distributor'},
 		{name: 'ETH Distributor', link: '/eth-distributor'},
-		{name: 'Wallet Lifter', link: '/wallet-lifter'},
+		{name: 'Lift Wallet', link: '/lift-wallet'},
 	],
 	
 }

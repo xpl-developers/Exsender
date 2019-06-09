@@ -18,7 +18,7 @@ function Hero() {
 			<div className="hero-body">
 				<div className="container">
 					<div className="columns">
-						<div className="column is-7 has-text-centered">
+						<div className="column has-text-centered">
 							<h1 className="title">
 								Automated Distributor
 							</h1>
@@ -45,7 +45,7 @@ function Hero() {
 						</div>
 						<div className="column">
 							<div className="box">
-								Exsender is developed to save time, gas and energy consumption on the blockchain. Token distribution has never been this simplified, sending token to thousands of addresses consumes lots of gas and time. <br/>Exsender automate this process by bundling hundreds of transfer in one single transaction. Just drop in addresses, send transaction, sit back, relax and watch. We have distributed to 20k addresses in 30 minutes.
+								Exsender is developed to save time and gas consumption on the blockchain. Token distribution has never been this simplified, sending token to thousands of addresses consume lots of gas and time. <br/>Exsender automate this process by bundling hundreds of transfer in one single transaction. Just drop in addresses, send transaction, sit back, relax and watch. We have distributed to 20k addresses in 30 minutes. <br/><br/>Transferring many tokens to another address is boring. Our "Lift Wallet" may not save the gas but will automated the transfer for you. Scan your wallet, select tokens to be transferred and get some other things done.
 							</div>
 						</div>
 					</div>

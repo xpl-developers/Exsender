@@ -4,11 +4,16 @@ export function LockedWeb3Browser(props) {
 	return (
 		<section className="halfpage-height">
 			<div className="container pl-4 pr-4 mt-4 pb-4">
-				<h1 className="is-size-3 has-text-centered">Token Distributor</h1>
+				<h1 className="is-size-3 has-text-centered">Exsender</h1>
 				<div className="columns center-align">
 					<div className="column pt-4 mt-4">
 						<p className="is-size-4"> Please unlock Metamask to continue.</p><br/>
-						{props.children}
+						<button 
+							className="button is-warning is-large"
+							onClick={props.onClick}
+							>
+						Unlock Metamask
+						</button>
 					</div>
 				</div>			
 			</div>
@@ -20,7 +25,7 @@ export function NoWeb3Browser() {
 	return (
 		<section className="halfpage-height">
 			<div className="container pl-4 pr-4 mt-4 pb-4">
-				<h1 className="is-size-3 has-text-centered">Token Distributor</h1>
+				<h1 className="is-size-3 has-text-centered">Exsender</h1>
 				<div className="columns">
 					<div className="column center-align mt-4 pt-4">
 						<p className="is-size-4"> 
@@ -42,7 +47,8 @@ export function NoWeb3Browser() {
 
 
 export function Web3ConnectionProps() {
-	if (!Web3ConnectionHandler.checkBrowserCompatibility()) {
+	let compactible = Web3ConnectionHandler.checkBrowserCompatibility();
+	if (!compactible) {
 		return null
 	}
 	let network = Web3ConnectionHandler.connectedNetwork();
@@ -55,7 +61,7 @@ export function Web3ConnectionProps() {
 			</li>
 			<li>
 				<span className="tag is-medium is-white">
-				{Web3ConnectionHandler.checkBrowserCompatibility().selectedAddress}
+				{compactible.selectedAddress}
 				</span>
 			</li>
 
