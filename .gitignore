@@ -3,6 +3,8 @@ dist
 out
 .next
 now.json
+.nowignore
+
 # dependencies
 node_modules
 package-lock.json
@@ -13,7 +15,7 @@ test/node_modules
 # logs & pids
 *.log
 pids
-
+.env
 # coverage
 .nyc_output
 coverage

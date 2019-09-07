@@ -253,7 +253,7 @@ class WalletLifter extends React.Component {
 												{...this.formFields().scanWallet}
 											/>
 											<p className="mt-4">
-												Automate the movement of tokens from one address to another.
+												Automate the transfer of tokens from one address to another.
 												<br/> <small>This feature is only available on the Main Network</small>
 											</p>
 										</div>

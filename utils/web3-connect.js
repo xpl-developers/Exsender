@@ -178,7 +178,7 @@ export class Web3ConnectionHandler {
 
 	static getAddressInfo() {
 		let address = Web3ConnectionHandler.checkBrowserCompatibility().selectedAddress;
-		let url = `http://api.ethplorer.io/getAddressInfo/${address}?apiKey=freekey`;
+		let url = `https://api.ethplorer.io/getAddressInfo/${address}?apiKey=freekey`;
 		return fetch(url).then(addrInfo => addrInfo.json());
 	}
 }
