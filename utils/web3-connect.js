@@ -26,14 +26,14 @@ export class Web3ConnectionHandler {
 			
 			let browserProperties = {};
 			
-			try{
+			try {
 				let request = await provider.enable();
 				browserProperties.selectedAddress = request[0];
 				browserProperties.networkVersion = provider.networkVersion;
 				return browserProperties;
 
 			} catch (err) {
-				console.log(JSON.stringify(err));
+				console.log(err.message);
 				throw (err);
 				// return null;
 			}

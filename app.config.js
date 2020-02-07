@@ -15,7 +15,7 @@ let AppConfig =  {
 		telegram: "https://t.me/xpl_chat",
 		facebook: "https://facebook.com/exclusiveplatform",
 		linkedin: "https://linkedin.com/company/exclusiveplatform",
-		github: "https://github.com/xpl-developers",
+		// github: "https://github.com/xpl-developers",
 		medium: "https://medium.com/@exclusiveplatform",
 	},
 	navLink: [

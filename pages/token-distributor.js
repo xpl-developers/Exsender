@@ -111,7 +111,7 @@ class TokenDistributor extends React.Component {
 					return SpreadsheetHelper.readObjectProperty(json);
 				})
 				.then( columnsObject => {
-					console.log(columnsObject)
+					// console.log(columnsObject)
 					if ( columnsObject["amounts"] ) {
 						
 						/*self.setState({

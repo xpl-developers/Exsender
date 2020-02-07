@@ -35,7 +35,7 @@ export function TransactionMonitor(props) {
 		}
 		return (
 			<p key={i}>
-				{i+1}. <i>{lifting} {(tx.lift ? tx.hash : "skipped") || "txhash unknown"}</i> 
+				{i+1}. <i>{lifting} {tx.hash || "skipped"}</i> 
 				&nbsp; {icon}
 			</p>
 		);

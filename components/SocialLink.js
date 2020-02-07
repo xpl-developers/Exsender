@@ -9,11 +9,11 @@ export default (props) => {
 		let temp = <a 
 					href={socials[link]} 
 					target="_blank"
-					className={props.classList || "has-text-grey-lighter mr-2"} 
+					className={props.classList || "has-text-grey mr-2"} 
 					key={link}> 
 
 					<i 
-						className={`fab fa-${link} fa-${props.size || "1"}x`}>
+						className={`fab fa-${link} fa-${props.size || "2"}x`}>
 					</i> 
 				</a>;
 		

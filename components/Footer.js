@@ -10,15 +10,8 @@ let Footer = () => {
 				<div className="column">
 					<p className="is-size-5">
 						{appConfig.name} by <a href={appConfig.website} target="_blank">{appConfig.author}</a>
-					</p>
-					<p className="is-size-6">
-						<a href={appConfig.termsOfService.link} target="_blank">
-							{appConfig.termsOfService.name}
-						</a><br/>
-						<a href={appConfig.privacyPolicy.link} target="_blank">
-							{appConfig.privacyPolicy.name}
-						</a>
-					</p>
+					</p><br/>
+					<SocialLink />
 				</div>
 				<div className="column">
 					{appConfig.donation.message}<br/><br/>
